@@ -25,3 +25,9 @@ func LoadFile(filename string) (map[string]Field, error) {
 	}
 	return data, nil
 }
+
+func PrettyPrintJSON(data map[string]Field) {
+	encoder := json.NewEncoder(os.Stdout)
+	encoder.SetIndent("", "  ")
+	encoder.Encode(data)
+}
