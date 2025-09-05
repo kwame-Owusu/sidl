@@ -40,6 +40,7 @@ var versionCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(explainCmd)
+	rootCmd.AddCommand(explainPrefixCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(typesCmd)
 	loadSids()
