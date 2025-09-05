@@ -14,7 +14,7 @@ func IsValidSid(sid string, file map[string]Field) (bool, error) {
 
 	identifier := sid[0:2]
 	if _, ok := file[identifier]; !ok {
-		return false, fmt.Errorf("invalid Twilio identifier: %s", identifier)
+		return false, fmt.Errorf("Invalid twilio identifier: %s", identifier)
 	}
 
 	if !sidHexRe.MatchString(sid) {

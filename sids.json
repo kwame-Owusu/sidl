@@ -11,6 +11,18 @@
     "name": null,
     "description": "The unique string that that we created to identify this ShortCode resource."
   },
+  "SM": {
+    "name": "MessagingSid",
+    "description": "The SID associated with a message resource."
+  },
+  "CA": {
+    "name": "Callsid",
+    "description": "The SID associated with a call resource"
+  },
+  "CH": {
+    "name": "ConversationSid",
+    "description": "The SID associated with a conversations resource"
+  },
   "GP": {
     "name": "groupSid",
     "description": "The Group SID associated with this call. If no Group is associated with the call, the field is empty."
@@ -18,6 +30,10 @@
   "TK": {
     "name": "trunkSid",
     "description": "The SID of the Trunk"
+  },
+  "PA": {
+    "name": "PartipantsSid",
+    "description": "The SID associated with a participant resource"
   },
   "FS": {
     "name": null,

@@ -19,13 +19,13 @@ func explainSid(cmd *cobra.Command, args []string) {
 	sid := args[0]
 	isValidSid, err := internal.IsValidSid(sid, sids)
 	if err != nil {
-		fmt.Printf("Error occured while checking if sid is valid: %s", err)
+		fmt.Printf("Error occured while checking if sid is valid: %s\n", err)
 	}
 	if !isValidSid {
-		fmt.Printf("Not a valid SID, please refer to twilio docs or check sidly list, %s", args[0])
+		fmt.Printf("Not a valid SID, please refer to twilio docs or check sidly list, %s\n", args[0])
 	}
 
-	if description, ok := sids[sid]; ok {
-		fmt.Printf("description: %s", description.Description)
+	if description, ok := sids[sid[0:2]]; ok {
+		fmt.Printf("description: %s\n", description.Description)
 	}
 }
