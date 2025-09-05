@@ -27,6 +27,7 @@ func explainSid(cmd *cobra.Command, args []string) {
 	}
 
 	if description, ok := sids[sid[0:2]]; ok {
-		fmt.Printf("description: %s\n", description.Description)
+		fmt.Printf("Name: %s\n", description.Name)
+		fmt.Printf("Description: %s\n", description.Description)
 	}
 }
