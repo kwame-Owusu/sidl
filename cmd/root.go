@@ -3,8 +3,20 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/kwame-Owusu/sidl/internal"
 	"github.com/spf13/cobra"
 )
+
+var sids map[string]internal.Field
+var dataFile string = "sids.json"
+
+func loadSids() {
+	var err error
+	sids, err = internal.LoadFile(dataFile)
+	if err != nil {
+		return
+	}
+}
 
 var rootCmd = &cobra.Command{
 	Use:   "sidly",
@@ -13,6 +25,11 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Welcome to sidly! Use 'sidly help' to see available commands.")
 	},
+}
+
+func init() {
+	rootCmd.AddCommand(listCmd)
+	loadSids()
 }
 
 // Execute executes the root command
