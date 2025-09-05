@@ -5,7 +5,6 @@ import (
 )
 
 func TestIsValidSid(t *testing.T) {
-	// Valid Twilio SID prefixes from your dataset
 	file := map[string]Field{
 		"AC": {}, "CA": {}, "SM": {}, "PN": {}, "CF": {}, "RE": {},
 		"QU": {}, "AP": {}, "TK": {}, "WS": {}, "WW": {}, "WK": {},
