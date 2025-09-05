@@ -41,6 +41,7 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(explainCmd)
 	rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(typesCmd)
 	loadSids()
 }
 
