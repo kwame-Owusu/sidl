@@ -24,7 +24,7 @@ var rootCmd = &cobra.Command{
 	Short: "A CLI tool for twilio sids",
 	Long:  `A CLI tool to get detailed information about twilio sids`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Welcome to sidl! Use 'sidly help' to see available commands.")
+		fmt.Println("Welcome to sidl! Use 'sidl help' to see available commands.")
 	},
 }
 
