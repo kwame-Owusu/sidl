@@ -10,7 +10,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List all sids",
-	Long:  `A CLI twilio to get twilio sids detailed information from`,
+	Long:  `List all available information about a sid`,
 	Run:   listSids,
 }
 
