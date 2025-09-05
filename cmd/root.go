@@ -30,6 +30,7 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(listCmd)
+	rootCmd.AddCommand(explainCmd)
 	loadSids()
 }
 
