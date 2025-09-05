@@ -7,20 +7,21 @@ import (
 	"strings"
 )
 
-func LoadFile(filename string) (os.File, error) {
+func LoadFile(filename string) (map[string]Field, error) {
+	var data map[string]Field
+
 	if !strings.HasSuffix(filename, ".json") {
-		return nil, fmt.Errorf("Invalid filename, file has to end in .json")
+		return nil, fmt.Errorf("invalid filename, file has to end in .json")
 	}
 
-	var file os.File
-	data, err := os.ReadFile(filename)
+	fileData, err := os.ReadFile(filename)
 	if err != nil {
-		fmt.Errorf("Error reading file, %s", err)
-	}
-	err = json.Unmarshal(data, &file)
-	if err != nil {
-		return nil, fmt.Errorf("Error unmarshaling file, %s", err)
+		return nil, fmt.Errorf("error reading file: %s", err)
 	}
 
-	return file, nil
+	err = json.Unmarshal(fileData, &data)
+	if err != nil {
+		return nil, fmt.Errorf("error unmarshaling file: %s", err)
+	}
+	return data, nil
 }

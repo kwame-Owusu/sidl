@@ -1,6 +1,6 @@
 package internal
 
-type Sids struct {
-	name        string
-	description string
+type Field struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
 }
