@@ -1,0 +1,570 @@
+{
+  "MG": {
+    "name": "messagingServiceSid",
+    "description": "The SID of the Messaging Service"
+  },
+  "ME": {
+    "name": "mediaSid",
+    "description": "The unique string that that we created to identify this Media resource."
+  },
+  "SC": {
+    "name": null,
+    "description": "The unique string that that we created to identify this ShortCode resource."
+  },
+  "GP": {
+    "name": "groupSid",
+    "description": "The Group SID associated with this call. If no Group is associated with the call, the field is empty."
+  },
+  "TK": {
+    "name": "trunkSid",
+    "description": "The SID of the Trunk"
+  },
+  "FS": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies the feedback summary resource."
+  },
+  "MZ": {
+    "name": null,
+    "description": "The SID of the Stream resource."
+  },
+  "SR": {
+    "name": null,
+    "description": "The SID of the Siprec resource."
+  },
+  "CF": {
+    "name": "conferenceSid",
+    "description": "The unique SID identifier of the Conference."
+  },
+  "PK": {
+    "name": null,
+    "description": "The SID of the Payments resource."
+  },
+  "QU": {
+    "name": "queueSid",
+    "description": "The SID of the Queue"
+  },
+  "RE": {
+    "name": "recordingSid",
+    "description": "The SID of the Recording"
+  },
+  "TR": {
+    "name": null,
+    "description": "The unique string that that we created to identify the Transcription resource."
+  },
+  "CL": {
+    "name": "credentialListSid",
+    "description": "The unique id that identifies the credential list"
+  },
+  "AL": {
+    "name": "ipAccessControlListSid",
+    "description": "The SID of the IpAccessControlList resource"
+  },
+  "IP": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies the IpAddress"
+  },
+  "NY": {
+    "name": "connectionPolicySid",
+    "description": "The SID of the Connection Policy"
+  },
+  "NE": {
+    "name": null,
+    "description": "The unique string that we created to identify the Target resource."
+  },
+  "IB": {
+    "name": null,
+    "description": "The unique string that we created to identify the IP Record resource."
+  },
+  "IL": {
+    "name": "ipRecordSid",
+    "description": "The Twilio-provided string that uniquely identifies the IP Record resource"
+  },
+  "ZS": {
+    "name": "serviceSid",
+    "description": "The unique string that we created to identify the Service resource."
+  },
+  "ZV": {
+    "name": null,
+    "description": "The unique string that we created to identify the Variable resource."
+  },
+  "ZE": {
+    "name": "environmentSid",
+    "description": "The SID of the Environment Variables"
+  },
+  "ZB": {
+    "name": "buildSid",
+    "description": "The unique string that we created to identify the Build resource."
+  },
+  "ZD": {
+    "name": "deploymentSid",
+    "description": "The unique string that we created to identify the Deployment resource."
+  },
+  "NO": {
+    "name": null,
+    "description": "The unique string that we created to identify the Log resource."
+  },
+  "RQ": {
+    "name": "requestSid",
+    "description": "The SID of the request associated with the log."
+  },
+  "RM": {
+    "name": "roomSid",
+    "description": "The unique string that we created to identify the Room resource."
+  },
+  "MT": {
+    "name": null,
+    "description": "The unique string that we created to identify the RoomParticipantPublishedTrack and RoomParticipantSubscribedTrack resource."
+  },
+  "RT": {
+    "name": null,
+    "description": "The unique string that we created to identify the Recording resource."
+  },
+  "CJ": {
+    "name": null,
+    "description": "The unique string that we created to identify the Composition resource."
+  },
+  "HK": {
+    "name": null,
+    "description": "The unique string that we created to identify the CompositionHook resource."
+  },
+  "FW": {
+    "name": "flowSid",
+    "description": "The unique string that we created to identify the Flow resource."
+  },
+  "FN": {
+    "name": "executionSid",
+    "description": "The unique string that we created to identify the Execution resource."
+  },
+  "FT": {
+    "name": "stepSid",
+    "description": "The unique string that we created to identify the ExecutionStep resource."
+  },
+  "FC": {
+    "name": "contactSid",
+    "description": "The SID of the Contact."
+  },
+  "VJ": {
+    "name": null,
+    "description": "The unique string generated to identify the PlayerStreamer resource."
+  },
+  "ZX": {
+    "name": null,
+    "description": "The unique string generated to identify the MediaProcessor resource."
+  },
+  "OU": {
+    "name": null,
+    "description": "The unique string that we created to identify the OriginationUrl resource."
+  },
+  "IM": {
+    "name": null,
+    "description": "The SID of the message within a Conversation"
+  },
+  "MB": {
+    "name": null,
+    "description": "The unique ID of messages’s author participant. Null in case of system sent message."
+  },
+  "RL": {
+    "name": "roleSid",
+    "description": "The SID of a conversation-level or service-level Role"
+  },
+  "US": {
+    "name": null,
+    "description": "The unique string that we created to identify the User resource."
+  },
+  "IG": {
+    "name": null,
+    "description": "The SID of the Address Configuration resource. This value can be either the sid or the address of the configuration"
+  },
+  "WH": {
+    "name": null,
+    "description": "The unique string that we created to identify the Channel Webhook resource."
+  },
+  "DY": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this resource."
+  },
+  "BS": {
+    "name": null,
+    "description": "The unique string that we created to identify the User Binding resource."
+  },
+  "HS": {
+    "name": null,
+    "description": "The unique string that identifies the Sim resource."
+  },
+  "HF": {
+    "name": null,
+    "description": "The unique ID of the Fleet resource"
+  },
+  "HB": {
+    "name": null,
+    "description": "The SID of the Billing Period."
+  },
+  "HP": {
+    "name": null,
+    "description": "The unique string that we created to identify the eSIM Profile resource."
+  },
+  "HA": {
+    "name": null,
+    "description": "The SID or unique name of the Network Access Profile"
+  },
+  "HW": {
+    "name": null,
+    "description": "The unique string that we created to identify the Network resource."
+  },
+  "HC": {
+    "name": null,
+    "description": "The unique string that we created to identify the SMS Command resource."
+  },
+  "HG": {
+    "name": null,
+    "description": "The unique string that we created to identify the IP Command resource."
+  },
+  "KA": {
+    "name": null,
+    "description": "A 34-character string that uniquely identifies this App."
+  },
+  "DC": {
+    "name": null,
+    "description": "The unique string that we created to identify the Command resource."
+  },
+  "DE": {
+    "name": null,
+    "description": "The unique string that we created to identify the Sim resource."
+  },
+  "WN": {
+    "name": null,
+    "description": "The unique string that we created to identify the DataSession resource."
+  },
+  "WP": {
+    "name": null,
+    "description": "The unique string that we created to identify the RatePlan resource."
+  },
+  "VA": {
+    "name": null,
+    "description": "The unique SID identifier of the Verify Service."
+  },
+  "HJ": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies a Verification Template."
+  },
+  "VE": {
+    "name": null,
+    "description": "The unique string that we created to identify the Verification resource."
+  },
+  "VL": {
+    "name": null,
+    "description": "The SID that uniquely identifies the verification attempt resource."
+  },
+  "YK": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Access Token."
+  },
+  "YE": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Entity."
+  },
+  "YF": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Factor."
+  },
+  "YC": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Challenge."
+  },
+  "YW": {
+    "name": null,
+    "description": "The unique string that we created to identify the Webhook resource."
+  },
+  "NT": {
+    "name": null,
+    "description": "The unique string that we created to identify the Notification resource."
+  },
+  "RK": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Rate Limit."
+  },
+  "BL": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Bucket."
+  },
+  "SK": {
+    "name": null,
+    "description": "The unique string that that we created to identify the Key resource."
+  },
+  "RI": {
+    "name": "identitySid",
+    "description": "The SID of the Identity resource that we associate with the phone number. Some regions require an Identity to meet local regulations."
+  },
+  "BU": {
+    "name": "bundleSid",
+    "description": "The SID of the Bundle resource that you associate with the phone number. Some regions require a Bundle to meet local Regulations."
+  },
+  "AE": {
+    "name": null,
+    "description": "The unique string that we created to identify the Event resource."
+  },
+  "JS": {
+    "name": null,
+    "description": "The unique string that that we created to identify the Bulk Export job"
+  },
+  "UT": {
+    "name": null,
+    "description": "The unique string that that we created to identify the UsageTrigger resource."
+  },
+  "AI": {
+    "name": null,
+    "description": "The unique string that we created to identify the AlphaSender resource."
+  },
+  "QE": {
+    "name": null,
+    "description": "The unique string that identifies a US A2P Compliance resource."
+  },
+  "BN": {
+    "name": "brandRegistrationSid",
+    "description": "The unique string to identify the A2P brand."
+  },
+  "RN": {
+    "name": null,
+    "description": "The unique string that identifies the Regulation resource."
+  },
+  "IT": {
+    "name": null,
+    "description": "The unique string created by Twilio to identify the End User resource."
+  },
+  "UD": {
+    "name": null,
+    "description": "The unique string that we created to identify the Task resource."
+  },
+  "UA": {
+    "name": null,
+    "description": "The unique string that we created to identify the Assistant resource."
+  },
+  "UF": {
+    "name": null,
+    "description": "The unique string that we created to identify the Sample resource."
+  },
+  "UG": {
+    "name": null,
+    "description": "The unique string that we created to identify the ModelBuild resource."
+  },
+  "UE": {
+    "name": null,
+    "description": "The unique string that we created to identify the Field resource."
+  },
+  "UB": {
+    "name": null,
+    "description": "The unique string that we created to identify the FieldType resource."
+  },
+  "UC": {
+    "name": null,
+    "description": "The unique string that we created to identify the FieldValue resource."
+  },
+  "UH": {
+    "name": null,
+    "description": "The unique string that we created to identify the Query resource."
+  },
+  "UK": {
+    "name": null,
+    "description": "The SID of the Dialogue."
+  },
+  "UM": {
+    "name": null,
+    "description": "The unique string that we created to identify the Webhook resource."
+  },
+  "KS": {
+    "name": null,
+    "description": "The SID of the parent Service of the PhoneNumber resource"
+  },
+  "KC": {
+    "name": null,
+    "description": "The unique string that we created to identify the Session resource."
+  },
+  "KP": {
+    "name": null,
+    "description": "The unique string that we created to identify the Participant resource."
+  },
+  "KI": {
+    "name": null,
+    "description": "The unique string that we created to identify the Interaction resource."
+  },
+  "CP": {
+    "name": null,
+    "description": "SID for this participant."
+  },
+  "WS": {
+    "name": "workspaceSid",
+    "description": "The SID of the Workspace"
+  },
+  "EV": {
+    "name": null,
+    "description": "The unique string that we created to identify the Event resource."
+  },
+  "WR": {
+    "name": "reservationSid",
+    "description": "The unique string that we created to identify the WorkerReservation resource."
+  },
+  "WQ": {
+    "name": "taskQueueSid",
+    "description": "The SID of the TaskQueue."
+  },
+  "WT": {
+    "name": "taskSid",
+    "description": "The unique string that we created to identify the Task resource."
+  },
+  "WK": {
+    "name": "workerSid",
+    "description": "The unique string that we created to identify the Worker resource."
+  },
+  "WW": {
+    "name": "workflowSid",
+    "description": "The unique string that we created to identify the Workflow resource."
+  },
+  "TC": {
+    "name": "taskChannelSid",
+    "description": "The SID of the TaskChannel."
+  },
+  "WC": {
+    "name": null,
+    "description": "The unique string that we created to identify the WorkerChannel resource."
+  },
+  "ES": {
+    "name": null,
+    "description": "The unique string that we created to identify the Sync List resource."
+  },
+  "ET": {
+    "name": null,
+    "description": "The unique string that we created to identify the Document resource."
+  },
+  "MP": {
+    "name": null,
+    "description": "The unique string that we created to identify the Sync Map resource."
+  },
+  "TO": {
+    "name": null,
+    "description": "The unique string that we created to identify the Sync Stream resource."
+  },
+  "TZ": {
+    "name": null,
+    "description": "The unique string that we created to identify the Stream Message resource."
+  },
+  "KD": {
+    "name": null,
+    "description": "The unique string created by Twilio to identify an Interaction resource, prefixed with KD."
+  },
+  "DG": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Sink."
+  },
+  "DF": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this Subscription."
+  },
+  "HR": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this HostedNumberOrder."
+  },
+  "PX": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies this AuthorizationDocument."
+  },
+  "RD": {
+    "name": null,
+    "description": "The unique string created by Twilio to identify the Supporting Document resource."
+  },
+  "OY": {
+    "name": null,
+    "description": "The unique string that identifies the Supporting Document Type resource."
+  },
+  "BV": {
+    "name": null,
+    "description": "The unique string that we created to identify the Item Assignment resource."
+  },
+  "EL": {
+    "name": null,
+    "description": "The unique string that identifies the Evaluation resource."
+  },
+  "PU": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies the PortInNumber."
+  },
+  "PO": {
+    "name": null,
+    "description": "A 34 character string that uniquely identifies the PortInOrder."
+  },
+  "RA": {
+    "name": null,
+    "description": "The unique string that we created to identify the Item Assignment resource."
+  },
+  "IN": {
+    "name": null,
+    "description": "The unique string that we created to identify the Invite resource."
+  },
+  "FP": {
+    "name": null,
+    "description": "The unique string that we created to identify the Flex Plugin resource."
+  },
+  "FV": {
+    "name": null,
+    "description": "The unique string that we created to identify the Flex Plugin Version resource."
+  },
+  "FJ": {
+    "name": null,
+    "description": "The unique string that we created to identify the Flex Plugin Configuration resource."
+  },
+  "FK": {
+    "name": null,
+    "description": "The unique string that we created to identify the Plugin Release resource."
+  },
+  "FO": {
+    "name": null,
+    "description": "The unique string that we created to identify the Flex Flow resource."
+  },
+  "UO": {
+    "name": null,
+    "description": "The unique string created by Twilio to identify an Interaction Channel resource, prefixed with UO."
+  },
+  "KG": {
+    "name": null,
+    "description": "The unique string created by Twilio to identify an Interaction Channel Invite resource."
+  },
+  "CN": {
+    "name": "connectAppSid",
+    "description": "The unique string that that we created to identify the ConnectApp resource."
+  },
+  "XR": {
+    "name": null,
+    "description": "The unique string that that we created to identify the Recording AddOnResult resource."
+  },
+  "XB": {
+    "name": null,
+    "description": "The unique string that we created to identify the AvailableAddOn resource."
+  },
+  "XE": {
+    "name": null,
+    "description": "The unique string that we created to identify the InstalledAddOn resource. This Sid can also be found in the Console on that specific Add-ons page as the ‘Available Add-on Sid’."
+  },
+  "XH": {
+    "name": null,
+    "description": "The unique string that that we created to identify the Recording AddOnResult Payload resource."
+  },
+  "XF": {
+    "name": null,
+    "description": "The unique string that we created to identify the InstalledAddOn Extension resource."
+  },
+  "BX": {
+    "name": null,
+    "description": "The unique SID identifier of the Business."
+  },
+  "BZ": {
+    "name": null,
+    "description": "The unique SID identifier of the Brand."
+  },
+  "BW": {
+    "name": null,
+    "description": "The unique SID identifier of the Branded Channel."
+  },
+  "NU": {
+    "name": "identity",
+    "description": "The unique string that we created to identify the User resource."
+  }
+}
