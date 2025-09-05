@@ -28,9 +28,19 @@ var rootCmd = &cobra.Command{
 	},
 }
 
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Get version of sidl",
+	Long:  `Get version of sidl`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("0.8.0")
+	},
+}
+
 func init() {
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(explainCmd)
+	rootCmd.AddCommand(versionCmd)
 	loadSids()
 }
 
