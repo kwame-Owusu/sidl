@@ -19,10 +19,11 @@ func explainSid(cmd *cobra.Command, args []string) {
 	sid := args[0]
 	isValidSid, err := internal.IsValidSid(sid, sids)
 	if err != nil {
-		fmt.Printf("Error occured while checking if sid is valid: %s\n", err)
+		fmt.Printf("Error occured while checking if sid is valid, %s\n", err)
 	}
 	if !isValidSid {
-		fmt.Printf("Not a valid SID, please refer to twilio docs or check sidly list, %s\n", args[0])
+		argIdentifier := args[0][0:2]
+		fmt.Printf("Unknown SID prefix: %s\n", argIdentifier)
 	}
 
 	if description, ok := sids[sid[0:2]]; ok {
