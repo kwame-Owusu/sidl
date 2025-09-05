@@ -14,6 +14,7 @@ func loadSids() {
 	var err error
 	sids, err = internal.LoadFile(dataFile)
 	if err != nil {
+		fmt.Printf("Error loading sids: %v\n", err)
 		return
 	}
 }
