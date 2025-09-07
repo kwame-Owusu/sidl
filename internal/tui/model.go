@@ -1,6 +1,7 @@
 package tui
 
 import (
+	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
@@ -10,12 +11,15 @@ type SidInfo struct {
 }
 
 type Model struct {
-	sids map[string]SidInfo
+	list list.Model
 	err  error
 }
 
 func NewModel() Model {
-	return Model{}
+	// Start with an empty list
+	l := list.New(nil, list.NewDefaultDelegate(), 0, 0)
+	l.Title = "SIDs from sids.json"
+	return Model{list: l}
 }
 
 func (m Model) Init() tea.Cmd {
