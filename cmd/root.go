@@ -43,6 +43,7 @@ func init() {
 	rootCmd.AddCommand(explainPrefixCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(typesCmd)
+	rootCmd.AddCommand(tuiCmd)
 	loadSids()
 }
 
