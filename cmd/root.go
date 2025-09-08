@@ -30,7 +30,7 @@ var versionCmd = &cobra.Command{
 	Short: "Get version of sidl",
 	Long:  `Get version of sidl`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("0.8.0")
+		fmt.Println("1.0.0")
 	},
 }
 
