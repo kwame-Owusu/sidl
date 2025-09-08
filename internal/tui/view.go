@@ -9,9 +9,9 @@ func (m Model) View() string {
 
 	switch m.mode {
 	case ModeHome:
-		return "Welcome to sidl🎉\n\n" +
+		return "Welcome to sidl \n\n" +
 			"Available commands:\n" +
-			"  list   → View all SID types\n\n" +
+			"  l  → View all SID types\n\n" +
 			"Press q to quit."
 	case ModeList:
 		return m.list.View()

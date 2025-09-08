@@ -12,20 +12,33 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.list.SetSize(msg.Width, msg.Height-2)
 
 	case tea.KeyMsg:
-		if msg.String() == "q" || msg.String() == "ctrl+c" {
-			return m, tea.Quit
+		switch m.mode {
+		case ModeHome:
+			// Home mode keybindings
+			if msg.String() == "l" {
+				// Switch to list mode
+				m.mode = ModeList
+				return m, loadSidsCmd()
+			}
+		case ModeList:
+			// List mode keybindings
+			if msg.String() == "q" || msg.String() == "ctrl+c" {
+				return m, tea.Quit
+			}
 		}
-	}
 
-	if m.mode == ModeList {
-		// Handle list mode
-		switch msg := msg.(type) {
-		case sidsLoadedMsg:
+	case sidsLoadedMsg:
+		if m.mode == ModeList {
 			items := toListItems(msg)
 			m.list.SetItems(items)
-		case errMsg:
-			m.err = msg
 		}
+
+	case errMsg:
+		m.err = msg
+	}
+
+	// Let the list handle messages if we're in list mode
+	if m.mode == ModeList {
 		m.list, cmd = m.list.Update(msg)
 	}
 
