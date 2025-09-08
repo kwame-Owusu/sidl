@@ -56,15 +56,19 @@ func explainSid(cmd *cobra.Command, args []string) {
 
 func explainPrefix(cmd *cobra.Command, args []string) {
 	sid := args[0]
-	if len(sid) > 2 || len(sid) < 2 {
-		fmt.Printf("Prefix command only needs the sid prefix, which is exactly 2 characters")
+	if len(sid) != 2 {
+		fmt.Printf("Prefix command only needs the sid prefix, which is exactly 2 characters\n")
 		return
 	}
-	prefix := strings.ToUpper(sid[0:2])
+	prefix := strings.ToUpper(sid)
 
 	if description, ok := sids[prefix]; ok {
-		fmt.Printf("Name: %s\n", description.Name)
-		fmt.Printf("Description: %s\n", description.Description)
+		p := tea.NewProgram(
+			tui.NewExplainModel(description.Name, description.Description, prefix),
+		)
+		if _, err := p.Run(); err != nil {
+			fmt.Printf("Alas, there's been an error: %v", err)
+		}
 	} else {
 		fmt.Printf("SID prefix %s not found in sids.json\n", prefix)
 	}

@@ -5,6 +5,7 @@ import (
 
 	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 )
 
 type ExplainModel struct {
@@ -17,7 +18,6 @@ func NewExplainModel(name, description string, prefix string) ExplainModel {
 		{Title: "Field", Width: 15},
 		{Title: "Value", Width: 60},
 	}
-
 	rows := []table.Row{
 		{"Prefix", prefix},
 		{"Name", fmt.Sprintf("%v", name)},
@@ -51,11 +51,29 @@ func (m ExplainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m ExplainModel) View() string {
-	return "\n" + m.table.View() + "\n\nPress q to quit."
+	return m.table.View() + "\nPress q to quit."
 }
 
 // styles
 func defaultTableStyles() table.Styles {
 	s := table.DefaultStyles()
+
+	// Header: bold with a bottom border
+	s.Header = lipgloss.NewStyle().
+		Bold(true).
+		Border(lipgloss.NormalBorder()).
+		BorderBottom(true).
+		BorderForeground(lipgloss.Color("240")).
+		Padding(0, 1)
+
+	// Regular cells: a little horizontal padding
+	s.Cell = lipgloss.NewStyle().Padding(0, 1)
+
+	// Selected row: inverted colors
+	s.Selected = lipgloss.NewStyle().
+		Foreground(lipgloss.Color("229")).
+		Background(lipgloss.Color("57")).
+		Padding(0, 1)
+
 	return s
 }
