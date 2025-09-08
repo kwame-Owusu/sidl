@@ -3,36 +3,22 @@ package tui
 import (
 	"fmt"
 
-	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 )
 
 type ExplainModel struct {
-	table table.Model
-	err   error
+	prefix      string
+	name        string
+	description string
 }
 
-func NewExplainModel(name, description string, prefix string) ExplainModel {
-	columns := []table.Column{
-		{Title: "Field", Width: 15},
-		{Title: "Value", Width: 60},
+func NewExplainModel(name, description, prefix string) ExplainModel {
+	return ExplainModel{
+		prefix:      prefix,
+		name:        fmt.Sprintf("%v", name),
+		description: description,
 	}
-	rows := []table.Row{
-		{"Prefix", prefix},
-		{"Name", fmt.Sprintf("%v", name)},
-		{"Description", description},
-	}
-
-	t := table.New(
-		table.WithColumns(columns),
-		table.WithRows(rows),
-		table.WithFocused(true),
-	)
-
-	t.SetStyles(defaultTableStyles())
-
-	return ExplainModel{table: t}
 }
 
 func (m ExplainModel) Init() tea.Cmd { return nil }
@@ -45,35 +31,23 @@ func (m ExplainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, tea.Quit
 		}
 	}
-	var cmd tea.Cmd
-	m.table, cmd = m.table.Update(msg)
-	return m, cmd
+	return m, nil
 }
 
 func (m ExplainModel) View() string {
-	return m.table.View() + "\nPress q to quit."
-}
+	titleStyle := lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("69"))
+	valueStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("255"))
 
-// styles
-func defaultTableStyles() table.Styles {
-	s := table.DefaultStyles()
+	block := lipgloss.JoinVertical(lipgloss.Left,
+		fmt.Sprintf("%s %s", titleStyle.Render("Prefix:"), valueStyle.Render(m.prefix)),
+		fmt.Sprintf("%s %s", titleStyle.Render("Name:"), valueStyle.Render(m.name)),
+		fmt.Sprintf("%s %s", titleStyle.Render("Description:"), valueStyle.Render(m.description)),
+	)
 
-	// Header: bold with a bottom border
-	s.Header = lipgloss.NewStyle().
-		Bold(true).
+	card := lipgloss.NewStyle().
 		Border(lipgloss.NormalBorder()).
-		BorderBottom(true).
-		BorderForeground(lipgloss.Color("240")).
-		Padding(0, 1)
+		Padding(1, 2).
+		Render(block)
 
-	// Regular cells: a little horizontal padding
-	s.Cell = lipgloss.NewStyle().Padding(0, 1)
-
-	// Selected row: inverted colors
-	s.Selected = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("229")).
-		Background(lipgloss.Color("57")).
-		Padding(0, 1)
-
-	return s
+	return card + "\n\nPress q to quit."
 }
