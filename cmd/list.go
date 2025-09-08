@@ -2,9 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"strings"
-
+	tea "github.com/charmbracelet/bubbletea"
+	"github.com/kwame-Owusu/sidl/internal/tui"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 var listCmd = &cobra.Command{
@@ -15,9 +16,9 @@ var listCmd = &cobra.Command{
 }
 
 func listSids(cmd *cobra.Command, args []string) {
-	fmt.Printf("%-4s %-20s %-80s\n", "KEY", "NAME", "DESCRIPTION")
-	fmt.Println(strings.Repeat("-", 105))
-	for key, val := range sids {
-		fmt.Printf("%-4s %-20s %-80s\n", key, val.Name, val.Description)
+	p := tea.NewProgram(tui.NewModel(tui.ModeList, sids))
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("Alas, there's been an error: %v", err)
+		os.Exit(1)
 	}
 }

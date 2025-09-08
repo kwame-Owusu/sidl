@@ -3,8 +3,11 @@ package cmd
 import (
 	"fmt"
 
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/kwame-Owusu/sidl/internal"
+	"github.com/kwame-Owusu/sidl/internal/tui"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 var sids map[string]internal.Field
@@ -24,7 +27,11 @@ var rootCmd = &cobra.Command{
 	Short: "A CLI tool for twilio sids",
 	Long:  `A CLI tool to get detailed information about twilio sids`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Welcome to sidl! Use 'sidl help' to see available commands.")
+		p := tea.NewProgram(tui.NewModel(tui.ModeHome, sids))
+		if _, err := p.Run(); err != nil {
+			fmt.Printf("Alas, there's been an error: %v", err)
+			os.Exit(1)
+		}
 	},
 }
 
@@ -43,6 +50,7 @@ func init() {
 	rootCmd.AddCommand(explainPrefixCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(typesCmd)
+	rootCmd.AddCommand(tuiCmd)
 	loadSids()
 }
 
