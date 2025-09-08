@@ -6,9 +6,10 @@ import (
 	"os"
 
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/kwame-Owusu/sidl/internal"
 )
 
-type sidsLoadedMsg map[string]SidInfo
+type sidsLoadedMsg map[string]internal.Field
 type errMsg error
 
 func loadSidsCmd() tea.Cmd {
@@ -18,7 +19,7 @@ func loadSidsCmd() tea.Cmd {
 			return errMsg(err)
 		}
 
-		var sids map[string]SidInfo
+		var sids map[string]internal.Field
 		if err := json.Unmarshal(f, &sids); err != nil {
 			return errMsg(err)
 		}

@@ -18,38 +18,46 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		switch m.mode {
 		case ModeHome:
-			if msg.String() == "l" {
+			switch msg.String() {
+			case "l":
 				m.mode = ModeList
-			}
-			if msg.String() == "e" { // "e" to enter explain mode
+			case "e":
 				m.mode = ModeExplainInput
+				m.input.SetValue("")
 				m.input.Focus()
-			}
-			if msg.String() == "q" {
+				return m, nil
+			case "q":
 				return m, tea.Quit
 			}
 
 		case ModeList:
-			if msg.String() == "h" { // back to home
+			switch msg.String() {
+			case "h":
 				m.mode = ModeHome
-			}
-			if msg.String() == "q" {
+			case "q":
 				return m, tea.Quit
+			default:
+				// Forward all other messages to the list
+				var cmd tea.Cmd
+				m.list, cmd = m.list.Update(msg)
+				return m, cmd
 			}
 
 		case ModeExplainInput:
-			if msg.String() == "enter" {
-				// Run explain on m.input.Value()
+			switch msg.String() {
+			case "enter":
 				sid := m.input.Value()
-				m.explanation = runExplain(m.sids, sid) // returns formatted string
-			}
-			if msg.String() == "esc" {
+				expl := runExplain(m.sids, sid)
+				m.explanations = append(m.explanations, expl)
+				m.input.SetValue("") // clear input for next SID
+				m.input.Focus()
+			case "h":
 				m.mode = ModeHome
 			}
 		}
 	}
 
-	// update list or input based on mode
+	// Let the list/input handle the messages
 	if m.mode == ModeList {
 		m.list, cmd = m.list.Update(msg)
 	}
