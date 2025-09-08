@@ -1,0 +1,61 @@
+package tui
+
+import (
+	"fmt"
+
+	"github.com/charmbracelet/bubbles/table"
+	tea "github.com/charmbracelet/bubbletea"
+)
+
+type ExplainModel struct {
+	table table.Model
+	err   error
+}
+
+func NewExplainModel(name, description string, prefix string) ExplainModel {
+	columns := []table.Column{
+		{Title: "Field", Width: 15},
+		{Title: "Value", Width: 60},
+	}
+
+	rows := []table.Row{
+		{"Prefix", prefix},
+		{"Name", fmt.Sprintf("%v", name)},
+		{"Description", description},
+	}
+
+	t := table.New(
+		table.WithColumns(columns),
+		table.WithRows(rows),
+		table.WithFocused(true),
+	)
+
+	t.SetStyles(defaultTableStyles())
+
+	return ExplainModel{table: t}
+}
+
+func (m ExplainModel) Init() tea.Cmd { return nil }
+
+func (m ExplainModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.KeyMsg:
+		switch msg.String() {
+		case "q", "esc", "ctrl+c":
+			return m, tea.Quit
+		}
+	}
+	var cmd tea.Cmd
+	m.table, cmd = m.table.Update(msg)
+	return m, cmd
+}
+
+func (m ExplainModel) View() string {
+	return "\n" + m.table.View() + "\n\nPress q to quit."
+}
+
+// styles
+func defaultTableStyles() table.Styles {
+	s := table.DefaultStyles()
+	return s
+}

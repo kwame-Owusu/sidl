@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"strings"
 
+	tea "github.com/charmbracelet/bubbletea"
 	"github.com/kwame-Owusu/sidl/internal"
+	"github.com/kwame-Owusu/sidl/internal/tui"
 	"github.com/spf13/cobra"
 )
 
@@ -27,23 +29,26 @@ var explainPrefixCmd = &cobra.Command{
 func explainSid(cmd *cobra.Command, args []string) {
 	sid := args[0]
 	upperSid := strings.ToUpper(sid)
-	prefix := strings.ToUpper(sid[0:2]) // Make sure prefix is uppercase too
+	prefix := strings.ToUpper(sid[0:2])
 
 	isValidSid, err := internal.IsValidSid(upperSid, sids)
 	if err != nil {
 		fmt.Printf("Error occurred while checking if sid is valid: %s\n", err)
 		return
 	}
-
 	if !isValidSid {
 		fmt.Printf("Unknown SID prefix: %s\n", prefix)
 		return
 	}
 
-	// Use the uppercase prefix to lookup in the map
 	if description, ok := sids[prefix]; ok {
-		fmt.Printf("Name: %s\n", description.Name)
-		fmt.Printf("Description: %s\n", description.Description)
+		// Run TUI
+		p := tea.NewProgram(
+			tui.NewExplainModel(description.Name, description.Description, prefix),
+		)
+		if _, err := p.Run(); err != nil {
+			fmt.Printf("Alas, there's been an error: %v", err)
+		}
 	} else {
 		fmt.Printf("SID prefix %s not found in sids.json\n", prefix)
 	}
