@@ -28,6 +28,8 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				return m, nil
 			case "q":
 				return m, tea.Quit
+			case "ctrl+c":
+				return m, tea.Quit
 			}
 
 		case ModeList:
@@ -35,6 +37,8 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "h":
 				m.mode = ModeHome
 			case "q":
+				return m, tea.Quit
+			case "ctrl+c":
 				return m, tea.Quit
 			default:
 				// Forward all other messages to the list
@@ -53,6 +57,8 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.input.Focus()
 			case "h":
 				m.mode = ModeHome
+			case "ctrl+c":
+				return m, tea.Quit
 			}
 		}
 	}

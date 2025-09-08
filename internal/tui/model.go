@@ -40,7 +40,9 @@ type Model struct {
 	sids         map[string]internal.Field
 }
 
-func NewModel(startMode mode, sids map[string]internal.Field) Model {
+func NewModel(startMode mode) Model {
+	sids := internal.LoadSIDs()
+
 	// convert sids to items
 	items := make([]list.Item, 0, len(sids))
 	for key, s := range sids {

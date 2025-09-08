@@ -16,7 +16,7 @@ var listCmd = &cobra.Command{
 }
 
 func listSids(cmd *cobra.Command, args []string) {
-	p := tea.NewProgram(tui.NewModel(tui.ModeList, sids))
+	p := tea.NewProgram(tui.NewModel(tui.ModeList))
 	if _, err := p.Run(); err != nil {
 		fmt.Printf("Alas, there's been an error: %v", err)
 		os.Exit(1)

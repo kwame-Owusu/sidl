@@ -11,23 +11,13 @@ import (
 )
 
 var sids map[string]internal.Field
-var dataFile string = "sids.json"
-
-func loadSids() {
-	var err error
-	sids, err = internal.LoadFile(dataFile)
-	if err != nil {
-		fmt.Printf("Error loading sids: %v\n", err)
-		return
-	}
-}
 
 var rootCmd = &cobra.Command{
 	Use:   "sidl",
 	Short: "A CLI tool for twilio sids",
 	Long:  `A CLI tool to get detailed information about twilio sids`,
 	Run: func(cmd *cobra.Command, args []string) {
-		p := tea.NewProgram(tui.NewModel(tui.ModeHome, sids))
+		p := tea.NewProgram(tui.NewModel(tui.ModeHome))
 		if _, err := p.Run(); err != nil {
 			fmt.Printf("Alas, there's been an error: %v", err)
 			os.Exit(1)
@@ -51,7 +41,7 @@ func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(typesCmd)
 	rootCmd.AddCommand(tuiCmd)
-	loadSids()
+	sids = internal.LoadSIDs()
 }
 
 // Execute executes the root command
