@@ -27,7 +27,7 @@ var rootCmd = &cobra.Command{
 	Short: "A CLI tool for twilio sids",
 	Long:  `A CLI tool to get detailed information about twilio sids`,
 	Run: func(cmd *cobra.Command, args []string) {
-		p := tea.NewProgram(tui.NewModel(tui.ModeHome))
+		p := tea.NewProgram(tui.NewModel(tui.ModeHome, sids))
 		if _, err := p.Run(); err != nil {
 			fmt.Printf("Alas, there's been an error: %v", err)
 			os.Exit(1)

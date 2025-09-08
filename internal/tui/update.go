@@ -1,7 +1,11 @@
 package tui
 
 import (
+	"fmt"
+	"strings"
+
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/kwame-Owusu/sidl/internal"
 )
 
 func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -14,40 +18,64 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.KeyMsg:
 		switch m.mode {
 		case ModeHome:
-			// Home mode keybindings
 			if msg.String() == "l" {
-				// Switch to list mode
 				m.mode = ModeList
-				return m, loadSidsCmd()
 			}
-			if msg.String() == "q" || msg.String() == "ctrl+c" {
+			if msg.String() == "e" { // "e" to enter explain mode
+				m.mode = ModeExplainInput
+				m.input.Focus()
+			}
+			if msg.String() == "q" {
 				return m, tea.Quit
 			}
+
 		case ModeList:
-			// List mode keybindings
-			if msg.String() == "q" || msg.String() == "ctrl+c" {
+			if msg.String() == "h" { // back to home
+				m.mode = ModeHome
+			}
+			if msg.String() == "q" {
 				return m, tea.Quit
 			}
-			if msg.String() == "h" {
+
+		case ModeExplainInput:
+			if msg.String() == "enter" {
+				// Run explain on m.input.Value()
+				sid := m.input.Value()
+				m.explanation = runExplain(m.sids, sid) // returns formatted string
+			}
+			if msg.String() == "esc" {
 				m.mode = ModeHome
-				return m, nil
 			}
 		}
-
-	case sidsLoadedMsg:
-		if m.mode == ModeList {
-			items := toListItems(msg)
-			m.list.SetItems(items)
-		}
-
-	case errMsg:
-		m.err = msg
 	}
 
-	// Let the list handle messages if we're in list mode
+	// update list or input based on mode
 	if m.mode == ModeList {
 		m.list, cmd = m.list.Update(msg)
 	}
+	if m.mode == ModeExplainInput {
+		m.input, cmd = m.input.Update(msg)
+	}
 
 	return m, cmd
+}
+
+func runExplain(sids map[string]internal.Field, sid string) string {
+	upperSid := strings.ToUpper(sid)
+	if len(upperSid) < 2 {
+		return "Invalid SID"
+	}
+	prefix := upperSid[:2]
+
+	info, ok := sids[prefix]
+	if !ok || info.Name == "" {
+		return "Unknown SID"
+	}
+
+	name := "<none>"
+	if info.Name != "" {
+		name = info.Name
+	}
+
+	return fmt.Sprintf("Prefix: %s\nName: %s\nDescription: %s", prefix, name, info.Description)
 }
