@@ -14,7 +14,8 @@ func (m Model) View() string {
 			"  l  → View all SID types\n\n" +
 			"Press q to quit."
 	case ModeList:
-		return m.list.View()
+		hint := "\n\nPress h to get back to home"
+		return m.list.View() + hint
 	default:
 		return "Unknown mode"
 	}

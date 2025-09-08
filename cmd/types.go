@@ -6,6 +6,7 @@ import (
 	"github.com/kwame-Owusu/sidl/internal/tui"
 
 	"github.com/spf13/cobra"
+	"strings"
 )
 
 var typesCmd = &cobra.Command{
@@ -24,12 +25,12 @@ func listTypes(cmd *cobra.Command, args []string) {
 		}
 		sidTypes = append(sidTypes, name)
 	}
-	for _, sidType := range sidTypes {
-		p := tea.NewProgram(
-			tui.NewTypesModel(sidType),
-		)
-		if _, err := p.Run(); err != nil {
-			fmt.Printf("Alas, there's been an error: %v", err)
-		}
+	content := strings.Join(sidTypes, "\n")
+
+	p := tea.NewProgram(
+		tui.NewTypesModel(content),
+	)
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("Alas, there's been an error: %v", err)
 	}
 }

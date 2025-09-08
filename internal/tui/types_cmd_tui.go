@@ -1,56 +1,39 @@
 package tui
 
 import (
-	"github.com/charmbracelet/bubbles/table"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 )
 
 type TypesModel struct {
-	table table.Model
-	err   error
+	content string
+	width   int
 }
 
-func NewTypesModel(name string) TypesModel {
-	columns := []table.Column{
-		{Title: "No", Width: 15},
-		{Title: "Type", Width: 60},
-	}
-
-	rows := []table.Row{
-		{"-", name},
-	}
-	t := table.New(
-		table.WithColumns(columns),
-		table.WithRows(rows),
-		table.WithFocused(true),
-	)
-
-	t.SetStyles(defaultTableStyles())
-
-	return TypesModel{table: t}
+func NewTypesModel(content string) TypesModel {
+	return TypesModel{content: content, width: 80}
 }
 
 func (m TypesModel) Init() tea.Cmd { return nil }
 
 func (m TypesModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.width = msg.Width
 	case tea.KeyMsg:
 		switch msg.String() {
 		case "q", "esc", "ctrl+c":
 			return m, tea.Quit
 		}
 	}
-	var cmd tea.Cmd
-	m.table, cmd = m.table.Update(msg)
-	return m, cmd
+	return m, nil
 }
 
 func (m TypesModel) View() string {
-	return "\n" + m.table.View() + "\n\nPress q to quit."
-}
+	style := lipgloss.NewStyle().
+		Foreground(lipgloss.Color("69")).
+		Padding(1, 2).
+		Width(m.width - 4)
 
-// styles
-func defaultTableStyles() table.Styles {
-	s := table.DefaultStyles()
-	return s
+	return style.Render(m.content) + "\n\nPress q to quit."
 }
