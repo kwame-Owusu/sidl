@@ -3,6 +3,10 @@
     "name": "messagingServiceSid",
     "description": "The SID of the Messaging Service"
   },
+  "AC": {
+    "name": "accountSid",
+    "description": "The SID associated with a twilio account"
+  },
   "ME": {
     "name": "mediaSid",
     "description": "The unique string that that we created to identify this Media resource."
