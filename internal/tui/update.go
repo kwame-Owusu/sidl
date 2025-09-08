@@ -20,6 +20,9 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.mode = ModeList
 				return m, loadSidsCmd()
 			}
+			if msg.String() == "q" || msg.String() == "ctrl+c" {
+				return m, tea.Quit
+			}
 		case ModeList:
 			// List mode keybindings
 			if msg.String() == "q" || msg.String() == "ctrl+c" {
