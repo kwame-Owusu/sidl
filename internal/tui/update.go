@@ -76,7 +76,7 @@ func runExplain(sids map[string]internal.Field, sid string) string {
 	prefix := upperSid[:2]
 
 	info, ok := sids[prefix]
-	if !ok || info.Name == "" {
+	if !ok {
 		return "Unknown SID"
 	}
 
