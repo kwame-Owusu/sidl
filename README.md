@@ -14,6 +14,10 @@ SID Lookup: Input a SID to retrieve its associated information.
 
 Multi-SID Support: Paste and test multiple SIDs simultaneously for batch lookups.
 
+### 🎥 Demo
+
+https://github.com/user-attachments/assets/ba8b54cd-7072-4c84-89ac-4490f29f95cf
+
 ### Embedded Data: No external files required; all necessary data is embedded within the binary.
 
 🚀 Installation
