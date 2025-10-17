@@ -69,7 +69,7 @@ go build -o sidl main.go
 
 ```
 
-### 📦 Releases
+### Releases
 
 Binaries for various platforms are available on the Releases
 page:
