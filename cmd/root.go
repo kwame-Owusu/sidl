@@ -36,19 +36,17 @@ var versionCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(listCmd)
-	rootCmd.AddCommand(explainCmd)
-	rootCmd.AddCommand(explainPrefixCmd)
+	rootCmd.AddCommand(infoCmd)
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(typesCmd)
 	rootCmd.AddCommand(tuiCmd)
 	sids = internal.LoadSIDs()
 }
 
-// Execute executes the root command
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		// Exit with error code 1 if something goes wrong
-		// os.Exit(1)  // optional
+		os.Exit(1)
 	}
 }
