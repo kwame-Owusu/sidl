@@ -25,11 +25,7 @@ you paste a SID and immediately see what it represents.
 
 ## 🎥 Demo
 
-
 https://github.com/user-attachments/assets/ef4135fb-6c24-4f57-ad52-10af667b5f3e
-
-
-
 
 ---
 
@@ -98,6 +94,7 @@ Prebuilt binaries are available on the GitHub Releases page.
   - `sidl-darwin-arm64`
 - Linux
   - `sidl-linux-amd64`
+  - `sidl-linux-arm64`
 
 ---
 
