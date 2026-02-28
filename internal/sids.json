@@ -586,5 +586,13 @@
   "NU": {
     "name": "identity",
     "description": "The unique string that we created to identify the User resource."
+  },
+  "PN": {
+    "name": "phoneNumberSid",
+    "description": "The unique sid for a phone number"
+  },
+  "AP": {
+    "name": "applicationSid",
+    "description": "The unique sid for a TwiML app"
   }
 }

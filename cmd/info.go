@@ -57,6 +57,6 @@ func runInfo(cmd *cobra.Command, args []string) {
 }
 
 func runTUI(name, description, prefix string) {
-	output := tui.RenderInfo(prefix, description, description)
+	output := tui.RenderInfo(prefix, name, description)
 	fmt.Println(output)
 }
